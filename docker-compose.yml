@@ -4,11 +4,13 @@ services:
   db:
     image: postgres:16
     volumes:
-      - postgres_data:/var/lib/postgres/data
+      - postgres_data:/var/lib/postgres/data\
+    ports:
+      - "5432:5432"
     environment:
-      - POSTGRES_USER: bruss
-      - POSTGRES_DB: bruss
-      - POSTGRES_PASSWORD: ${BRUSS_DB_PASSWORD}
+      - POSTGRES_USER=bruss
+      - POSTGRES_DB=bruss
+      - POSTGRES_PASSWORD=${BRUSS_DB_PASSWORD}
 
 volumes:
   postgres_data:
